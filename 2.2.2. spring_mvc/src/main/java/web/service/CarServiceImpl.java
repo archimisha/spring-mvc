@@ -13,33 +13,15 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> listOfCars(int count) {
         List<Car> carList = new LinkedList<>();
-        switch (count) {
-            case 1:
-                carList.add(new Car(1, "BMW", "black"));
-                break;
-            case 2:
-                carList.add(new Car(1, "BMW", "black"));
-                carList.add(new Car(2, "Lada", "red"));
-                break;
-            case 3:
-                carList.add(new Car(1, "BMW", "black"));
-                carList.add(new Car(2, "Lada", "red"));
-                carList.add(new Car(3, "Toyota", "yellow"));
-                break;
-            case 4:
-                carList.add(new Car(1, "BMW", "black"));
-                carList.add(new Car(2, "Lada", "red"));
-                carList.add(new Car(3, "Toyota", "yellow"));
-                carList.add(new Car(4, "Ferrari", "white"));
-                break;
-            default:
-                carList.add(new Car(1, "BMW", "black"));
-                carList.add(new Car(2, "Lada", "red"));
-                carList.add(new Car(3, "Toyota", "yellow"));
-                carList.add(new Car(4, "Ferrari", "white"));
-                carList.add(new Car(5, "Volga", "brown"));
-                break;
+        carList.add(new Car(1, "BMW", "black"));
+        carList.add(new Car(2, "Lada", "red"));
+        carList.add(new Car(3, "Toyota", "yellow"));
+        carList.add(new Car(4, "Ferrari", "white"));
+        carList.add(new Car(5, "Volga", "brown"));
+        if (count > 5) {
+            return carList;
         }
-        return carList;
+        List<Car> resultList = carList.subList(0, count);
+        return resultList;
     }
 }
